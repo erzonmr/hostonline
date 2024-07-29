@@ -1,0 +1,38 @@
+/* Estilo general Lista Artistas*/
+.artist-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0px;
+}
+
+.artist {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.artist img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.artist a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Estilo al pasar el cursor */
+.artist:hover {
+    background-color: #cedbff; /* Color de fondo al pasar el cursor */
+}
+
+/* Estilos para el modo oscuro */
+
+body.dark .artist:hover {
+    background-color: #555; /* Color de fondo al pasar el cursor en modo oscuro */
+}
