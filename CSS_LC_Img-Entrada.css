@@ -1,0 +1,29 @@
+/* Contenedor para la imagen y los encabezados */
+#img-entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Espacio entre el encabezado y el contenido */
+  }
+  
+  /* Imagen */
+  #img-entry img {
+    margin-right: 15px; /* Espacio entre la imagen y el texto */
+    width: 100px; /* Ajusta el tamaño de la imagen */
+    height: 100px; /* Asegúrate de que sea cuadrada */
+    border-radius: 50% 50% 10% 50%; /* Hace la imagen circular con una esquina inferior derecha diferente */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+  }
+  
+  /* Encabezados */
+  #img-entry h1 {
+    margin: 0;
+    font-size: 2em; /* Ajusta el tamaño según sea necesario */
+  }
+  
+  #img-entry h2 {
+    margin: 0;
+    font-size: 1.5em; /* Ajusta el tamaño según sea necesario */
+    font-weight: normal; /* Ajusta el peso según sea necesario */
+    color: #3e55fa; /* Color específico para h2 */
+  }
+  
