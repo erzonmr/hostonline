@@ -2,7 +2,7 @@ function copiarContenido() {
     var contenido = document.getElementById("letra");
     var imgEntry = document.getElementById("img-entry");
     var texto = obtenerTextoConSaltos(imgEntry) + '\n\n' + obtenerTextoConSaltos(contenido);
-    texto += "\n\nPara más letras cristianas visita: www.letracristiana.com"; // Añadir el mensaje aquí
+    texto += "\n\nPara más Letras Cristianas visita: www.letracristiana.com"; // Añadir el mensaje aquí
     var areaTemporal = document.createElement("textarea");
     areaTemporal.value = texto;
     document.body.appendChild(areaTemporal);
