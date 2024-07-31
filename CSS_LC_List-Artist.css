@@ -18,7 +18,7 @@
 .artist img {
     width: 70px;
     height: 70px;
-    border-radius: 50%;
+    border-radius: 50% 50% 10% 50%; /* Hace la imagen circular con una esquina inferior derecha diferente */
 }
 
 .artist a {
