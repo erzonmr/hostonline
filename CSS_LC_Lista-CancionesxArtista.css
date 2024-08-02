@@ -1,0 +1,13 @@
+/* styles.css */
+.artist-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.artist-info img {
+    border-radius: 50% 50% 10% 50%;
+    margin-right: 15px;
+}
+.artist-info h1 {
+    margin: 0;
+}
