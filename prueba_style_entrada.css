@@ -1,0 +1,155 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Contenedor para la imagen y la información */
+.song-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la imagen */
+.song-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+/* Contenedor para título, subtítulo, álbum y año */
+.song-info div {
+    line-height: 1em; /* Reduce line height */
+    margin-bottom: 2px; /* Reduce bottom margin between elements */
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90px; /* Igualar la altura de la imagen */
+}
+
+/* Metadata */
+.chordpro-section-label,
+.chordpro-metadata {
+    font-size: 1em; /* Cambiado de 0.9em a 1em */
+    margin: 0em 0;
+}
+
+.chordpro-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.chordpro-subtitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: blue;
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+/* Estilos modificados para Tono y E */
+.chordpro-key {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    margin: 1em 0; /* Ajusta el margen para separar visualmente */
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+/* Estilo para "Tono" */
+.chordpro-metadata-name {
+    background-color: #3F3F3F; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 2px 4px;
+    border-radius: 5px; /* Esquinas redondeadas */
+    margin-right: 5px; /* Separación entre "Tono" y "E" */
+}
+
+/* Estilo para "E" */
+.chordpro-metadata-value {
+    background-color: #3F3F3F; /* Color de fondo */
+    color: red; /* Color del texto */
+    padding: 2px 4px;
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+  
+.chordpro-metadata-year_album-value {
+    font-weight: bold;  
+}
+
+.chordpro-tab {
+    font-family: monospace;
+}
+
+/* Lines & Chorus */
+.chordpro-line {
+    height: 2.5em;
+    margin-bottom: 0.3em;
+}
+
+.chordpro-line-text-only, .chordpro-line-chords-only {
+    height: 1.5em;
+}
+
+.chordpro-chorus {
+    padding-left: 10px;
+    padding-bottom: 3px;
+    border-left: 3px solid #3F3F3F;
+}
+
+.chordpro-block {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.chordpro-chord {
+    position: relative;
+    display: inline-block;
+    padding-right: 3px;
+    font-weight: bold;
+    font-size: 1em; /* Cambiado de 0.9em a 1em */
+    color: red;
+    top: 0.5em;
+}
+
+.chordpro-text {
+    position: relative;
+    display: block;
+    top: -0.2em;
+}
+
+/* Additional styles for the converter page */
+.chordpro-result {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo modificado para VERSO y CORO con altura reducida y esquinas redondeadas */
+.chordpro-metadata.chordpro-comment {
+    background-color: #3F3F3F;
+    color: #fff;
+    padding: 2px 4px;
+    font-weight: bold;
+    max-width: 25%;
+    display: inline-block;
+    line-height: 1.2em;
+    border-radius: 5px;
+}
+
+.chordpro-section {
+    margin-bottom: 0em;
+}
+
+  
