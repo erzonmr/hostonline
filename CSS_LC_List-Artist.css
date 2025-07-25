@@ -1,38 +1,61 @@
-/* Estilo general */
-.artist-list {
+#myArtistListContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0px;
+    gap: 15px 10px;
+    padding: 15px;
+    box-sizing: border-box;
 }
-
-.artist {
+#myArtistListContainer .artist {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
-    
-    padding: 10px;
+    padding: 8px 10px;
     border-radius: 8px;
-    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    text-align: left;
 }
-
-.artist img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50% 50% 10% 50%; /* Hace la imagen circular con una esquina inferior derecha diferente */
+#myArtistListContainer .artist img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: none !important;
+    outline: none !important;
+    margin-bottom: 0;
 }
-
-.artist a {
+#myArtistListContainer .artist a {
     text-decoration: none;
     font-size: 16px;
+    color: #3e55fa !important;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    min-width: 0;
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    line-height: normal;
+    max-height: unset;
 }
-
-/* Estilo al pasar el cursor */
-.artist:hover {
-    background-color: #e6edff; /* Color de fondo al pasar el cursor */
+#myArtistListContainer .artist:hover {
+    background-color: #EDEDFF;
+    box-shadow: none;
 }
-
-/* Estilos para el modo oscuro */
-
-body.dark .artist:hover {
-    background-color: #555; /* Color de fondo al pasar el cursor en modo oscuro */
+body.dark #myArtistListContainer .artist {
+    background-color: transparent;
+    box-shadow: none;
+}
+body.dark #myArtistListContainer .artist a {
+    color: #dcdcdc !important;
+}
+body.dark #myArtistListContainer .artist:hover {
+    background-color: #555;
+    box-shadow: none;
 }
