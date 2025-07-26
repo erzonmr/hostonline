@@ -14,11 +14,6 @@
   object-fit: cover;
 }
 
-/* Contenedor de los encabezados */
-#img-entry div {
-  line-height: 1; /* Reduce espacio vertical entre h1 y h2 */
-}
-
 /* Encabezado principal */
 #img-entry h1 {
   margin: 0;
