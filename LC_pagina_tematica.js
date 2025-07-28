@@ -24,7 +24,12 @@
         const error = document.getElementById('error');
         
         const urlBlog = window.location.origin;
-        const urlFeed = urlBlog + `/feeds/posts/default/-/${etiquetaActual}?alt=json&max-results=999`;
+        // Codificar la etiqueta para URLs
+        const etiquetaCodificada = encodeURIComponent(etiquetaActual);
+        const urlFeed = urlBlog + `/feeds/posts/default/-/${etiquetaCodificada}?alt=json&max-results=999`;
+        
+        console.log('Cargando etiqueta:', etiquetaActual);
+        console.log('URL del feed:', urlFeed);
         
         // Actualizar texto de carga
         if (loading) {
@@ -33,17 +38,20 @@
         
         fetch(urlFeed)
             .then(response => {
+                console.log('Respuesta del servidor:', response.status);
                 if (!response.ok) {
-                    throw new Error('No se pudieron cargar las entradas');
+                    throw new Error(`Error HTTP: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
+                console.log('Datos recibidos:', data);
                 const posts = data.feed.entry || [];
+                console.log('Número de posts encontrados:', posts.length);
                 
                 if (posts.length === 0) {
                     loading.style.display = 'none';
-                    error.innerHTML = `No se encontraron entradas con la etiqueta "${etiquetaActual}"`;
+                    error.innerHTML = `No se encontraron entradas con la etiqueta "${etiquetaActual}". Verifica que la etiqueta sea exacta (mayúsculas/minúsculas).`;
                     error.style.display = 'block';
                     return;
                 }
@@ -55,13 +63,14 @@
                     return tituloA.localeCompare(tituloB, 'es');
                 });
                 
+                console.log('Total de entradas ordenadas:', todasLasEntradas.length);
                 loading.style.display = 'none';
                 mostrarPagina(1);
             })
             .catch(err => {
-                console.error('Error:', err);
+                console.error('Error detallado:', err);
                 loading.style.display = 'none';
-                error.innerHTML = `Error al cargar ${etiquetaActual.toLowerCase()}. Verifica que existan entradas con esa etiqueta.`;
+                error.innerHTML = `Error al cargar "${etiquetaActual}". <br><small>Detalles: ${err.message}</small><br>Verifica que existan entradas con esa etiqueta exacta.`;
                 error.style.display = 'block';
             });
     }
@@ -71,6 +80,11 @@
         const infoPaginacion = document.getElementById('info-paginacion');
         const paginacionContainer = document.getElementById('paginacion');
         
+        if (!todasLasEntradas || todasLasEntradas.length === 0) {
+            console.error('No hay entradas para mostrar');
+            return;
+        }
+        
         paginaActual = numeroPagina;
         
         // Calcular rango
@@ -78,31 +92,53 @@
         const fin = inicio + cancionesPorPagina;
         const entradasPagina = todasLasEntradas.slice(inicio, fin);
         
+        console.log(`Mostrando página ${numeroPagina}: entradas ${inicio + 1} a ${Math.min(fin, todasLasEntradas.length)}`);
+        console.log('Entradas en esta página:', entradasPagina.length);
+        
         // Generar HTML
         let html = '';
-        entradasPagina.forEach(post => {
-            const titulo = post.title.$t;
-            const enlace = post.link.find(link => link.rel === 'alternate');
-            const url = enlace ? enlace.href : '#';
-            
-            html += `
-                <li class="cancion-item">
-                    <a href="${url}" class="cancion-link" target="_blank">
-                        ${titulo}
-                    </a>
-                </li>
-            `;
+        entradasPagina.forEach((post, index) => {
+            try {
+                const titulo = post.title.$t;
+                const enlace = post.link.find(link => link.rel === 'alternate');
+                const url = enlace ? enlace.href : '#';
+                
+                html += `
+                    <li class="cancion-item">
+                        <a href="${url}" class="cancion-link" target="_blank">
+                            ${titulo}
+                        </a>
+                    </li>
+                `;
+            } catch (error) {
+                console.error('Error procesando entrada:', post, error);
+            }
         });
+        
+        if (html === '') {
+            console.error('No se pudo generar HTML para las entradas');
+            return;
+        }
         
         lista.innerHTML = html;
         lista.style.display = 'block';
         
         // Ocultar información de paginación
         const totalPaginas = Math.ceil(todasLasEntradas.length / cancionesPorPagina);
-        infoPaginacion.style.display = 'none';
+        if (infoPaginacion) {
+            infoPaginacion.style.display = 'none';
+        }
         
-        generarPaginacion(totalPaginas);
-        paginacionContainer.style.display = 'flex';
+        console.log('Total de páginas:', totalPaginas);
+        
+        // Solo mostrar paginación si hay más de una página
+        if (totalPaginas > 1) {
+            generarPaginacion(totalPaginas);
+            paginacionContainer.style.display = 'flex';
+        } else {
+            paginacionContainer.style.display = 'none';
+            console.log('Solo hay una página, ocultando paginación');
+        }
         
         // Scroll suave
         const container = document.querySelector('.canciones-container');
