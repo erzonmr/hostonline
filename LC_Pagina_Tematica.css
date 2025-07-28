@@ -85,13 +85,14 @@
 }
 
 /* Modo oscuro */
-body.dark .cancion-link {
-    color: #9bb5ff;
+body.dark .canciones-lista .cancion-item .cancion-link {
+    color: #9bb5ff !important;
 }
 
-body.dark .cancion-link:hover {
-    color: #d2dcff;
+body.dark .canciones-lista .cancion-item .cancion-link:hover {
+    color: #d2dcff !important;
 }
+
 
 body.dark .error,
 body.dark .info-paginacion {
