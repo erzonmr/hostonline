@@ -80,7 +80,6 @@
 
     function mostrarPagina(numeroPagina) {
         const lista = document.getElementById('canciones-lista');
-        const infoPaginacion = document.getElementById('info-paginacion');
         const paginacionContainer = document.getElementById('paginacion');
 
         paginaActual = numeroPagina;
@@ -107,12 +106,6 @@
         lista.style.display = 'block';
 
         const totalPaginas = Math.ceil(todasLasEntradas.length / cancionesPorPagina);
-        const entradaInicio = inicio + 1;
-        const entradaFin = Math.min(fin, todasLasEntradas.length);
-
-        infoPaginacion.innerHTML = \`Mostrando \${entradaInicio} - \${entradaFin} de \${todasLasEntradas.length} \${etiquetaActual.toLowerCase()}\`;
-        infoPaginacion.style.display = 'block';
-
         generarPaginacion(totalPaginas);
         paginacionContainer.style.display = 'flex';
 
