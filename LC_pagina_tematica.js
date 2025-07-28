@@ -97,13 +97,9 @@
         lista.innerHTML = html;
         lista.style.display = 'block';
         
-        // Información de paginación
+        // Ocultar información de paginación
         const totalPaginas = Math.ceil(todasLasEntradas.length / cancionesPorPagina);
-        const entradaInicio = inicio + 1;
-        const entradaFin = Math.min(fin, todasLasEntradas.length);
-        
-        infoPaginacion.innerHTML = `Mostrando ${entradaInicio} - ${entradaFin} de ${todasLasEntradas.length} ${etiquetaActual.toLowerCase()}`;
-        infoPaginacion.style.display = 'block';
+        infoPaginacion.style.display = 'none';
         
         generarPaginacion(totalPaginas);
         paginacionContainer.style.display = 'flex';
