@@ -1,6 +1,4 @@
 // Paginador Blogger - Reutilizable
-// Uso: <script src="tu-repo.js" data-etiqueta="Alabanza" data-por-pagina="50"></script>
-
 (function() {
     let todasLasEntradas = [];
     let paginaActual = 1;
@@ -24,11 +22,10 @@
         const urlBlog = window.location.origin;
         const urlFeedBase = urlBlog + `/feeds/posts/default/-/${etiquetaActual}?alt=json&max-results=150`;
         let startIndex = 1;
-
         const todas = [];
 
         function fetchBatch() {
-            fetch(urlFeedBase + `&start-index=${startIndex}`)
+            fetch(`${urlFeedBase}&start-index=${startIndex}`)
                 .then(response => {
                     if (!response.ok) throw new Error('No se pudieron cargar las entradas');
                     return response.json();
@@ -36,7 +33,7 @@
                 .then(data => {
                     const posts = data.feed.entry || [];
                     todas.push(...posts);
-                    const nextLink = data.feed.link.find(l => l.rel === 'next');
+                    const nextLink = data.feed.link?.find(l => l.rel === 'next');
                     if (nextLink) {
                         startIndex += 150;
                         fetchBatch();
@@ -52,7 +49,7 @@
                 });
         }
 
-        loading.innerHTML = `Cargando ${etiquetaActual.toLowerCase()}...`;
+        if (loading) loading.innerHTML = `Cargando ${etiquetaActual.toLowerCase()}...`;
         fetchBatch();
     }
 
@@ -92,14 +89,7 @@
             const titulo = post.title.$t;
             const enlace = post.link.find(link => link.rel === 'alternate');
             const url = enlace ? enlace.href : '#';
-
-            html += `
-                <li class="cancion-item">
-                    <a href="${url}" class="cancion-link" target="_blank">
-                        ${titulo}
-                    </a>
-                </li>
-            `;
+            html += '<li class="cancion-item"><a href="' + url + '" class="cancion-link" target="_blank">' + titulo + '</a></li>';
         });
 
         lista.innerHTML = html;
@@ -117,7 +107,7 @@
         const paginacionContainer = document.getElementById('paginacion');
         let html = '';
 
-        html += `<button class="btn-paginacion ${paginaActual === 1 ? 'deshabilitado' : ''}" onclick="BloggerPaginador.cambiarPagina(${paginaActual - 1})">← Anterior</button>`;
+        html += '<button class="btn-paginacion ' + (paginaActual === 1 ? 'deshabilitado' : '') + '" onclick="BloggerPaginador.cambiarPagina(' + (paginaActual - 1) + ')">← Anterior</button>';
 
         let paginaInicio = Math.max(1, paginaActual - 2);
         let paginaFin = Math.min(totalPaginas, paginaActual + 2);
@@ -128,20 +118,20 @@
         }
 
         if (paginaInicio > 1) {
-            html += `<button class="btn-paginacion" onclick="BloggerPaginador.cambiarPagina(1)">1</button>`;
-            if (paginaInicio > 2) html += `<span class="btn-paginacion deshabilitado">...</span>`;
+            html += '<button class="btn-paginacion" onclick="BloggerPaginador.cambiarPagina(1)">1</button>';
+            if (paginaInicio > 2) html += '<span class="btn-paginacion deshabilitado">...</span>';
         }
 
         for (let i = paginaInicio; i <= paginaFin; i++) {
-            html += `<button class="btn-paginacion ${i === paginaActual ? 'activo' : ''}" onclick="BloggerPaginador.cambiarPagina(${i})">${i}</button>`;
+            html += '<button class="btn-paginacion ' + (i === paginaActual ? 'activo' : '') + '" onclick="BloggerPaginador.cambiarPagina(' + i + ')">' + i + '</button>';
         }
 
         if (paginaFin < totalPaginas) {
-            if (paginaFin < totalPaginas - 1) html += `<span class="btn-paginacion deshabilitado">...</span>`;
-            html += `<button class="btn-paginacion" onclick="BloggerPaginador.cambiarPagina(${totalPaginas})">${totalPaginas}</button>`;
+            if (paginaFin < totalPaginas - 1) html += '<span class="btn-paginacion deshabilitado">...</span>';
+            html += '<button class="btn-paginacion" onclick="BloggerPaginador.cambiarPagina(' + totalPaginas + ')">' + totalPaginas + '</button>';
         }
 
-        html += `<button class="btn-paginacion ${paginaActual === totalPaginas ? 'deshabilitado' : ''}" onclick="BloggerPaginador.cambiarPagina(${paginaActual + 1})">Siguiente →</button>`;
+        html += '<button class="btn-paginacion ' + (paginaActual === totalPaginas ? 'deshabilitado' : '') + '" onclick="BloggerPaginador.cambiarPagina(' + (paginaActual + 1) + ')">Siguiente →</button>';
 
         paginacionContainer.innerHTML = html;
     }
