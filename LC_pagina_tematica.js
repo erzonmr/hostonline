@@ -93,13 +93,13 @@
             const enlace = post.link.find(link => link.rel === 'alternate');
             const url = enlace ? enlace.href : '#';
 
-            html += \`
+            html += `
                 <li class="cancion-item">
-                    <a href="\${url}" class="cancion-link" target="_blank">
-                        \${titulo}
+                    <a href="${url}" class="cancion-link" target="_blank">
+                        ${titulo}
                     </a>
                 </li>
-            \`;
+            `;
         });
 
         lista.innerHTML = html;
@@ -117,7 +117,7 @@
         const paginacionContainer = document.getElementById('paginacion');
         let html = '';
 
-        html += \`<button class="btn-paginacion \${paginaActual === 1 ? 'deshabilitado' : ''}" onclick="BloggerPaginador.cambiarPagina(\${paginaActual - 1})">← Anterior</button>\`;
+        html += `<button class="btn-paginacion ${paginaActual === 1 ? 'deshabilitado' : ''}" onclick="BloggerPaginador.cambiarPagina(${paginaActual - 1})">← Anterior</button>`;
 
         let paginaInicio = Math.max(1, paginaActual - 2);
         let paginaFin = Math.min(totalPaginas, paginaActual + 2);
@@ -128,20 +128,20 @@
         }
 
         if (paginaInicio > 1) {
-            html += \`<button class="btn-paginacion" onclick="BloggerPaginador.cambiarPagina(1)">1</button>\`;
-            if (paginaInicio > 2) html += \`<span class="btn-paginacion deshabilitado">...</span>\`;
+            html += `<button class="btn-paginacion" onclick="BloggerPaginador.cambiarPagina(1)">1</button>`;
+            if (paginaInicio > 2) html += `<span class="btn-paginacion deshabilitado">...</span>`;
         }
 
         for (let i = paginaInicio; i <= paginaFin; i++) {
-            html += \`<button class="btn-paginacion \${i === paginaActual ? 'activo' : ''}" onclick="BloggerPaginador.cambiarPagina(\${i})">\${i}</button>\`;
+            html += `<button class="btn-paginacion ${i === paginaActual ? 'activo' : ''}" onclick="BloggerPaginador.cambiarPagina(${i})">${i}</button>`;
         }
 
         if (paginaFin < totalPaginas) {
-            if (paginaFin < totalPaginas - 1) html += \`<span class="btn-paginacion deshabilitado">...</span>\`;
-            html += \`<button class="btn-paginacion" onclick="BloggerPaginador.cambiarPagina(\${totalPaginas})">\${totalPaginas}</button>\`;
+            if (paginaFin < totalPaginas - 1) html += `<span class="btn-paginacion deshabilitado">...</span>`;
+            html += `<button class="btn-paginacion" onclick="BloggerPaginador.cambiarPagina(${totalPaginas})">${totalPaginas}</button>`;
         }
 
-        html += \`<button class="btn-paginacion \${paginaActual === totalPaginas ? 'deshabilitado' : ''}" onclick="BloggerPaginador.cambiarPagina(\${paginaActual + 1})">Siguiente →</button>\`;
+        html += `<button class="btn-paginacion ${paginaActual === totalPaginas ? 'deshabilitado' : ''}" onclick="BloggerPaginador.cambiarPagina(${paginaActual + 1})">Siguiente →</button>`;
 
         paginacionContainer.innerHTML = html;
     }
