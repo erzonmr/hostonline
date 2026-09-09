@@ -1,0 +1,216 @@
+/* ============================================================
+   LetraCristiana · Estilos listado automático de Artistas
+   Companero de Script_LC_Artistas-Tabs.js
+   ============================================================ */
+
+/* --- Buscador --- */
+.lc-buscador {
+  margin: 10px 0 15px;
+  text-align: center;
+}
+
+.lc-buscador input[type="search"] {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 16px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  box-sizing: border-box;
+  background: #fff;
+  color: #424242;
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.lc-buscador input[type="search"]:focus {
+  border-color: var(--all-link-color, #2e7d32);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, .15);
+}
+
+/* --- Tabs de letra A-Z --- */
+.lc-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+.lc-tab {
+  min-width: 42px;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: inherit;
+  color: #424242;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.lc-tab:hover {
+  background: #e8f5e9;
+  border-color: var(--all-link-color, #2e7d32);
+}
+
+.lc-tab.activo {
+  background: var(--all-link-color, #2e7d32);
+  border-color: var(--all-link-color, #2e7d32);
+  color: #fff;
+}
+
+.lc-tab .lc-tab-num {
+  font-size: 11px;
+  font-weight: normal;
+  opacity: .75;
+}
+
+/* --- Contador de resultados --- */
+.lc-resultado {
+  margin: 0;
+  padding: 0 15px 10px;
+  font-size: 13px;
+  color: #757575;
+  text-align: right;
+}
+
+/* --- Grid de artistas (mismo aspecto que el listado anterior) --- */
+#myArtistListContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px 10px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+#myArtistListContainer .artist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background-color .3s ease;
+  background-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+#myArtistListContainer .artist img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: none !important;
+  outline: none !important;
+  margin-bottom: 0;
+  background: #e0e0e0;
+}
+
+#myArtistListContainer .artist a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #424242 !important;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  min-width: 0;
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+  line-height: normal;
+  max-height: unset;
+}
+
+#myArtistListContainer .artist:hover {
+  background-color: #f0f0f0;
+  box-shadow: none;
+}
+
+/* --- Mensajes --- */
+.lc-vacio,
+.lc-error {
+  padding: 15px;
+  text-align: center;
+  color: #757575;
+  font-size: 15px;
+}
+
+.lc-error {
+  color: #c62828;
+}
+
+/* --- Modo oscuro --- */
+body.dark .lc-buscador input[type="search"] {
+  background: #2a2a2a;
+  color: #dcdcdc;
+  border-color: #555;
+}
+
+body.dark .lc-tab {
+  color: #dcdcdc;
+  background: #333;
+  border-color: #444;
+}
+
+body.dark .lc-tab:hover {
+  background: #3d3d3d;
+}
+
+body.dark .lc-tab.activo {
+  background: var(--all-link-color, #2e7d32);
+  color: #fff;
+}
+
+body.dark .lc-resultado {
+  color: #9e9e9e;
+}
+
+body.dark #myArtistListContainer .artist {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+body.dark #myArtistListContainer .artist a {
+  color: #dcdcdc !important;
+}
+
+body.dark #myArtistListContainer .artist:hover {
+  background-color: #555;
+  box-shadow: none;
+}
+
+body.dark .lc-vacio {
+  color: #9e9e9e;
+}
+
+/* --- Movil --- */
+@media (max-width: 480px) {
+  .lc-tab {
+    min-width: 38px;
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  #myArtistListContainer {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px 6px;
+    padding: 10px;
+  }
+
+  #myArtistListContainer .artist img {
+    width: 48px;
+    height: 48px;
+  }
+}
