@@ -49,14 +49,11 @@ Los archivos se sirven en el blog mediante dos CDNs:
 |---|---|
 | `CSS_LC_Entrada.css` | Cada entrada (letra de canción) |
 | `Script_LC_Copy-Letra.js` | Cada entrada (botón Copiar Letra) |
-| `CSS_LC_List-Artist.css` | Páginas antiguas "Lista Artistas por letra" |
-| `Script_LC_Lista-Artistas.js` | Páginas antiguas "Lista Artistas por letra" |
-| `LC_Pagina_Tematica.css` | Páginas antiguas de temática (Adoración, Alabanza) |
-| `LC_Pagina_Tematica.js` | Páginas antiguas de temática (Adoración, Alabanza) |
 
-> Las páginas que usaban estos 4 archivos (~27 "Lista Artistas X" y las 2 de
-> temática) fueron retiradas en Sep 2026 — **ya pueden borrarse del repo**
-> (pendiente de hacerlo).
+> **Sep 2026:** se borraron los 4 archivos legacy (`CSS_LC_List-Artist.css`,
+> `Script_LC_Lista-Artistas.js`, `LC_Pagina_Tematica.css`,
+> `LC_Pagina_Tematica.js`) tras retirar las páginas que los usaban
+> (~27 "Lista Artistas X" y las 2 de temática individual).
 
 ## Documentación
 

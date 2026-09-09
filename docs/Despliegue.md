@@ -76,8 +76,8 @@ Enlaces del menú apuntando a las 2 páginas nuevas; las ~27 páginas
 
 > Con las páginas legacy retiradas, los 4 archivos CSS/JS que solo ellas
 > cargaban (`CSS_LC_List-Artist.css`, `Script_LC_Lista-Artistas.js`,
-> `LC_Pagina_Tematica.css`, `LC_Pagina_Tematica.js`) ya pueden borrarse del
-> repo — ver nota en [README.md](../README.md).
+> `LC_Pagina_Tematica.css`, `LC_Pagina_Tematica.js`) se borraron del repo
+> (Sep 2026).
 
 ## Verificación rápida — confirmada (Sep 2026)
 
