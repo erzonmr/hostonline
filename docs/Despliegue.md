@@ -21,13 +21,30 @@ Los 6 archivos de automatización ya están en la raíz de este repo
 
 ## Paso 2 · Plantilla XML (una vez)
 
-1. Descargar la copia local del proyecto:
-   `Automatizacion/Template/Air_Mag_Premium_Version.xml`
-2. En Blogger → **Tema → (flecha) → Restaurar**, subir ese XML.
-   - Alternativa manual: **Editar HTML** y pegar antes de `</body>` el bloque
-     marcado como *"LetraCristiana · Automatizacion de paginas estaticas"*.
-3. El loader solo actúa en páginas estáticas que contengan los contenedores
+> ⚠️ Usa SOLO `AirMag-LetraCristiana-FINAL.xml` (proyecto local
+> `Automatizacion/Template/`). Está construido sobre el respaldo real del
+> blog (Jul-2025): menú, widgets y colores propios + loader de automatización
+> + menú nuevo de 3 items (Home / Artistas / Temática). Nunca restaurar la
+> plantilla pristina de Templateiki: borra la configuración del blog.
+
+1. En Blogger → **Tema → ⋮ → Restaurar**, subir
+   `Automatizacion/Template/AirMag-LetraCristiana-FINAL.xml`.
+2. El loader solo actúa en páginas estáticas que contengan los contenedores
    `#lcArtistas` / `#lcTematicas`. No afecta entradas ni portada.
+3. Alternativa manual: Editar HTML y pegar el bloque marcado como
+   *"LetraCristiana · Automatizacion de paginas estaticas"* antes de `</body>`.
+
+### Menú resultante (LinkList "Main Menu")
+
+| Item | Enlace |
+|---|---|
+| Home | `/` |
+| Artistas | `/p/artistas.html` |
+| Temática | `/p/tematicas.html` |
+
+El dropdown A-Z fue retirado (las letras viven ahora como tabs dentro de la
+página Artistas). Las ~27 páginas `lista-artistas-X` quedan fuera del menú;
+mantenerlas publicadas un tiempo para no perder URLs indexadas.
 
 ## Paso 3 · Páginas estáticas (una vez)
 
