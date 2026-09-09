@@ -1,6 +1,7 @@
 # Despliegue de la automatización (Artistas / Temáticas)
 
-Estado: **GitHub completado en Sep 2026**. Solo quedan los pasos de Blogger.
+Estado: **Despliegue completo (Sep 2026)** — GitHub y Blogger terminados y
+verificados. El sistema de Artistas/Temáticas está en producción.
 
 ## Qué se automatiza
 
@@ -19,7 +20,7 @@ Los 6 archivos de automatización ya están en la raíz de este repo
 `Script_LC_Tematicas-Auto.js`, `CSS_LC_Tematicas-Index.css`,
 `LC_config_etiquetas.json`, `LC_imagenes.json`).
 
-## Paso 2 · Plantilla XML (una vez)
+## Paso 2 · Plantilla XML (una vez) — COMPLETADO
 
 > ⚠️ Usa SOLO `AirMag-LetraCristiana-FINAL.xml` (proyecto local
 > `Automatizacion/Template/`). Está construido sobre el respaldo real del
@@ -43,10 +44,10 @@ Los 6 archivos de automatización ya están en la raíz de este repo
 | Temática | `/p/tematicas.html` |
 
 El dropdown A-Z fue retirado (las letras viven ahora como tabs dentro de la
-página Artistas). Las ~27 páginas `lista-artistas-X` quedan fuera del menú;
-mantenerlas publicadas un tiempo para no perder URLs indexadas.
+página Artistas). Las ~27 páginas `lista-artistas-X` y las 2 de temática
+individual ya fueron retiradas (Sep 2026).
 
-## Paso 3 · Páginas estáticas (una vez)
+## Paso 3 · Páginas estáticas (una vez) — COMPLETADO
 
 **Página Artistas** — Páginas → Página nueva → título "Artistas" → vista
 HTML → pegar solo:
@@ -68,15 +69,19 @@ HTML → pegar solo:
 > Si prefieres no tocar el XML, existe la versión independiente con CSS+JS
 > incluidos en `Automatizacion/Blogger/Pagina *.txt` del proyecto local.
 
-## Paso 4 · Menú
+## Paso 4 · Menú — COMPLETADO
 
-Apuntar los enlaces del menú a las 2 páginas nuevas y retirar
-progresivamente las ~27 páginas "Lista Artistas X" y las de temática
-individual (no borrar hasta comprobar que todo funciona).
+Enlaces del menú apuntando a las 2 páginas nuevas; las ~27 páginas
+"Lista Artistas X" y las de temática individual ya fueron retiradas.
 
-## Verificación rápida
+> Con las páginas legacy retiradas, los 4 archivos CSS/JS que solo ellas
+> cargaban (`CSS_LC_List-Artist.css`, `Script_LC_Lista-Artistas.js`,
+> `LC_Pagina_Tematica.css`, `LC_Pagina_Tematica.js`) ya pueden borrarse del
+> repo — ver nota en [README.md](../README.md).
 
-1. Abrir `/p/artistas.html` → deben listararse los artistas con su letra.
-2. Buscar "Alvarado" en el buscador → aparece Juan Carlos Alvarado.
-3. Abrir `/p/tematicas.html` → 10 temáticas con conteo.
-4. Clic en un artista → `/p/results.html?tag=...` con su lista de canciones.
+## Verificación rápida — confirmada (Sep 2026)
+
+1. Abrir `/p/artistas.html` → artistas listados con su letra. ✅
+2. Buscar "Alvarado" en el buscador → aparece Juan Carlos Alvarado. ✅
+3. Abrir `/p/tematicas.html` → 10 temáticas con conteo. ✅
+4. Clic en un artista → `/p/results.html?tag=...` con su lista de canciones. ✅

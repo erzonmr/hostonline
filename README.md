@@ -54,10 +54,9 @@ Los archivos se sirven en el blog mediante dos CDNs:
 | `LC_Pagina_Tematica.css` | Páginas antiguas de temática (Adoración, Alabanza) |
 | `LC_Pagina_Tematica.js` | Páginas antiguas de temática (Adoración, Alabanza) |
 
-> Los 4 archivos legacy de arriba podrán borrarse cuando se eliminen las
-> páginas que los usan: las ~27 "Lista Artistas X" y las 2 de temática
-> (`adoracion.html` y `tematica-alabanza.html`). Mientras esas páginas sigan
-> publicadas, no borrar estos archivos.
+> Las páginas que usaban estos 4 archivos (~27 "Lista Artistas X" y las 2 de
+> temática) fueron retiradas en Sep 2026 — **ya pueden borrarse del repo**
+> (pendiente de hacerlo).
 
 ## Documentación
 
