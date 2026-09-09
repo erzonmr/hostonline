@@ -35,10 +35,13 @@ Los archivos se sirven en el blog mediante dos CDNs:
 | `Script_LC_Copy-Letra.js` | Cada entrada (botón Copiar Letra) |
 | `CSS_LC_List-Artist.css` | Páginas antiguas "Lista Artistas por letra" |
 | `Script_LC_Lista-Artistas.js` | Páginas antiguas "Lista Artistas por letra" |
-| `CSS_LC_Lista-CancionesxArtista.css` | Páginas antiguas por artista |
-| `LC_Pagina_Tematica.css` | Página de resultados por etiqueta |
-| `LC_Pagina_Tematica.js` | Página de resultados por etiqueta |
-| `CSS_Email_Suscription.css` | Suscripción por email |
+| `LC_Pagina_Tematica.css` | Páginas antiguas de temática (Adoración, Alabanza) |
+| `LC_Pagina_Tematica.js` | Páginas antiguas de temática (Adoración, Alabanza) |
+
+> Los 4 archivos legacy de arriba podrán borrarse cuando se eliminen las
+> páginas que los usan: las ~27 "Lista Artistas X" y las 2 de temática
+> (`adoracion.html` y `tematica-alabanza.html`). Mientras esas páginas sigan
+> publicadas, no borrar estos archivos.
 
 ## Documentación
 
