@@ -1,0 +1,32 @@
+# Este repo contiene SOLO assets web del blog (público).
+# El proyecto completo vive en Google Drive (G:\Mi unidad\LetraCristiana)
+# y NO debe subirse aquí. Ver docs/Proyecto.md
+
+# Material del proyecto (privado)
+*.docx
+*.doc
+*.odt
+*.pdf
+*.zip
+*.rar
+*.url
+
+# Respaldos y plantillas completas del blog
+*.xml
+Copias de Seguridad/
+Plantillas/
+
+# Cuentas y credenciales
+Correos & Redes/
+
+# Imágenes locales (las del blog viven en postimg)
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+
+# Sistema / editor
+Thumbs.db
+.DS_Store
+desktop.ini

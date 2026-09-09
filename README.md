@@ -3,6 +3,14 @@
 Repositorio oficial de CSS, JS, JSON e imágenes de configuración para
 **[www.letracristiana.com](https://www.letracristiana.com)** (Blogger).
 
+> ## ⚠️ Este repo NO es el proyecto completo
+>
+> Aquí vive **solo lo que el blog carga desde internet** (assets web).
+> El proyecto completo —canciones, plantillas, respaldos, imágenes,
+> generador de letras, etc.— vive en **Google Drive**, en la carpeta
+> `G:\Mi unidad\LetraCristiana`. Lee [docs/Proyecto.md](docs/Proyecto.md)
+> para ver dónde está cada cosa y por qué están separados.
+
 Los archivos se sirven en el blog mediante dos CDNs:
 
 | CDN | Uso | Propagación de cambios |
@@ -45,6 +53,7 @@ Los archivos se sirven en el blog mediante dos CDNs:
 
 ## Documentación
 
+- [docs/Proyecto.md](docs/Proyecto.md) — **cómo está organizado el proyecto completo** (repo vs Google Drive, flujo de trabajo)
 - [docs/Despliegue.md](docs/Despliegue.md) — instalación de la automatización en Blogger
 - [docs/Mantenimiento.md](docs/Mantenimiento.md) — rutinas diarias y reglas críticas
 - [docs/Arquitectura.md](docs/Arquitectura.md) — cómo funciona todo el sistema
@@ -56,4 +65,6 @@ Los archivos se sirven en el blog mediante dos CDNs:
 2. **No crear nunca un repositorio nuevo llamado `hostonline`** ni transferir
    este repo: se perdería la redirección de la que dependen las entradas.
 3. **El repositorio debe permanecer público** (jsDelivr no sirve repos privados).
+   Por eso **no subir aquí** archivos del proyecto (canciones, cuentas,
+   respaldos, plantillas). Ver `.gitignore`.
 4. Nuevos archivos siempre en la raíz, con prefijo `LC_` o `CSS_LC_`/`Script_LC_`.
