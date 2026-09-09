@@ -1,30 +1,26 @@
-# Este repo contiene SOLO assets web del blog (público).
-# El proyecto completo vive en Google Drive (G:\Mi unidad\LetraCristiana)
-# y NO debe subirse aquí. Ver docs/Proyecto.md
+# LetraCristiana — repo unificado (assets web públicos + proyecto de trabajo privado)
+# Solo se sube a GitHub lo que el blog carga vía CDN (jsDelivr / raw.githubusercontent).
+# El resto del proyecto vive en esta misma carpeta pero NUNCA se rastrea en git.
+# Ver docs/Proyecto.md.
+#
+# Estrategia: allowlist (ignora todo por defecto, permite explícitamente lo público).
+# Así, cualquier carpeta o archivo nuevo del proyecto queda privado automáticamente,
+# sin depender de acordarse de añadirlo aquí.
 
-# Material del proyecto (privado)
-*.docx
-*.doc
-*.odt
-*.pdf
-*.zip
-*.rar
-*.url
+# 1. Ignora todo por defecto
+/*
 
-# Respaldos y plantillas completas del blog
-*.xml
-Copias de Seguridad/
-Plantillas/
+# 2. Permite los assets públicos del blog (raíz, convención LC_ / CSS_LC_ / Script_LC_)
+!/CSS_LC_*.css
+!/Script_LC_*.js
+!/LC_*.css
+!/LC_*.js
+!/LC_*.json
+!/README.md
+!/.gitignore
 
-# Cuentas y credenciales
-Correos & Redes/
-
-# Imágenes locales (las del blog viven en postimg)
-*.png
-*.jpg
-*.jpeg
-*.webp
-*.gif
+# 3. Permite la documentación
+!/docs
 
 # Sistema / editor
 Thumbs.db
