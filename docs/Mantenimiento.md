@@ -30,20 +30,13 @@ del grupo (`grupos` → `0-9`, archivo `33-d-C.webp`).
    (el orden del JSON = orden de muestra en la página).
 3. Opcional: agrega su imagen en `LC_imagenes.json` → `tematicas`.
 
-## Temáticas sin imagen (pendiente Sep 2026)
-
-- Adoración
-- Necesidad de Dios
-- Victoria
-
-Muestran un cuadro verde con la inicial hasta agregar su imagen
-(ver procedimiento arriba).
-
 ## Clasificar una etiqueta mal categorizada
 
 - Todo lo que no está en `tematicas`/`excluidas` y no es letra suelta
   (A, B, C… navegación) **se considera artista**.
 - "Palabra En Acción" está confirmado como **artista** (ministerio musical).
+- "Dominio Público" está confirmado como **artista** (no temática) — reclasificado
+  en Sep 2026.
 - Para mover algo: edita `LC_config_etiquetas.json` (y su imagen de sección
   en `LC_imagenes.json` si aplica).
 
